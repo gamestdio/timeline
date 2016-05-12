@@ -33,7 +33,7 @@ setTimeout(() => {
   // => 50.24875621890547
 
   //
-  // Extrapolating data timeline between an unknown state
+  // Extrapolating data between an unknown state
   //
   console.log( timeline.at( 1500 ).player.x )
   // => -49.25373134328358
