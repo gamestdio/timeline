@@ -1,8 +1,8 @@
 
-const History = require('./history.js')
+const Timeline = require('./timeline.js')
 
-module.exports.createHistory = function ( maxSnapshots ) {
+module.exports.createTimeline = function ( maxSnapshots ) {
 
-  return new History( maxSnapshots )
+  return new Timeline( maxSnapshots )
 
 }

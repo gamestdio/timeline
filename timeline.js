@@ -3,14 +3,14 @@
 const Proxy = require('harmony-proxy')
 const createProxy = require('./proxy.js').createProxy
 
-const MAX_HISTORY_SNAPSHOTS = 10
+const MAX_SNAPSHOTS = 10
 
-class History {
+class Timeline {
 
   constructor ( maxSnapshots ) {
 
     if ( !maxSnapshots ) {
-      maxSnapshots = MAX_HISTORY_SNAPSHOTS
+      maxSnapshots = MAX_SNAPSHOTS
     }
 
     this.currentTime = null
@@ -150,4 +150,4 @@ class History {
 }
 
 
-module.exports = History
+module.exports = Timeline
