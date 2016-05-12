@@ -1,0 +1,33 @@
+{
+  "name": "timeframe",
+  "version": "0.1.0",
+  "description": "Timelines implementation for lag compensation techniques in networked games.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --harmony --harmony-proxies"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gamestdio/timeframe.git"
+  },
+  "keywords": [
+    "lag",
+    "compensation",
+    "networked",
+    "games",
+    "mmo"
+  ],
+  "author": "Endel Dreyer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gamestdio/timeframe/issues"
+  },
+  "homepage": "https://github.com/gamestdio/timeframe#readme",
+  "dependencies": {
+    "clock.js": "*",
+    "harmony-proxy": "^1.0.1"
+  },
+  "devDependencies": {
+    "mocha": "^2.3.4"
+  }
+}
