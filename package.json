@@ -1,6 +1,6 @@
 {
   "name": "timeframe",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Timelines implementation for lag compensation techniques in networked games.",
   "main": "index.js",
   "scripts": {
@@ -15,7 +15,7 @@
     "compensation",
     "networked",
     "games",
-    "mmo"
+    "multiplayer"
   ],
   "author": "Endel Dreyer",
   "license": "MIT",

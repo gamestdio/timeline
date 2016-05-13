@@ -10,8 +10,9 @@ Use it both on server and/or client-side according to your needs.
 API
 ---
 
-- `takeSnapshot( state[, timestamp] )` - Record state on timeline history
-- `at( offset )` - Get `Proxy` object containing interpolated values between recorded states.
+- `createTimeline([ maxSnapshots=10 ])` - Create a Timeline instance
+- `Timeline#takeSnapshot( state[, elapsedMs ] )` - Record state on timeline history
+- `Timeline#at( elapsedMs )` - Get `Proxy` object containing interpolated values between recorded states.
 
 Example
 ---

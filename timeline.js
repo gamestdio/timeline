@@ -15,8 +15,6 @@ class Timeline {
 
     this.startTime = null
 
-    this.elapsedTime = 0
-
     this.lastSnapshotTime = -1
 
     this.history = []
