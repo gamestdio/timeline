@@ -13,7 +13,7 @@ class Timeline {
       maxSnapshots = MAX_SNAPSHOTS
     }
 
-    this.currentTime = null
+    this.startTime = null
 
     this.elapsedTime = 0
 
@@ -25,17 +25,15 @@ class Timeline {
 
   }
 
-  takeSnapshot ( state, now ) {
+  takeSnapshot ( state, elapsedTime ) {
 
-    if ( !now ) {
-      now = Date.now()
+    if ( !this.startTime ) {
+      this.startTime = Date.now()
     }
 
-    if ( !this.currentTime ) {
-      this.currentTime = Date.now()
-    }
+    let now = ( !elapsedTime ) ? Date.now() : this.startTime + elapsedTime
 
-    let end = now - this.currentTime
+    let end = now - this.startTime
 
     //
     // history timeframe:
@@ -50,7 +48,7 @@ class Timeline {
 
     // drop older history
     if ( this.history.length > this.maxSnapshots ) {
-      this.history.unshift()
+      this.history.shift()
     }
 
     this.lastSnapshotTime = end

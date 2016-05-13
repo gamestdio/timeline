@@ -5,16 +5,57 @@ var assert = require('assert')
 
 describe('Timeline', function() {
 
-  var now = Date.now()
-
   var timeline = createTimeline()
   timeline.takeSnapshot({ entities : { "one": 10 } })
 
   // fake 100ms later
-  timeline.takeSnapshot({ entities : { "one": 5 } }, now + 100)
+  timeline.takeSnapshot({ entities : { "one": 5 } }, 100)
 
   // fake 200ms later
-  timeline.takeSnapshot({ entities : { "one": 0 } }, now + 200)
+  timeline.takeSnapshot({ entities : { "one": 0 } }, 200)
+
+  describe("dealing with dropped snapshots", function() {
+
+    let t = createTimeline( 5 )
+    assert.equal( t.history.length, 0 )
+
+    t.takeSnapshot({ "one": 10 })
+    t.takeSnapshot({ "one": 15 }, 20)
+    t.takeSnapshot({ "one": 18 }, 30)
+    t.takeSnapshot({ "one": 20 }, 40)
+
+    assert.equal( t.history.length, 4 )
+
+    it("#takeSnapshot should drop old snapshots", function() {
+
+      t.takeSnapshot({ "one": 25 }, 50)
+      assert.equal( t.history.length, 5 )
+
+      t.takeSnapshot({ "one": 20 }, 60)
+      assert.equal( t.history.length, 5 )
+
+      t.takeSnapshot({ "one": 30 }, 70)
+      assert.equal( t.history.length, 5 )
+
+      t.takeSnapshot({ "one": 40 }, 80)
+      assert.equal( t.history.length, 5 )
+
+    })
+
+    it("should interpolate between removed state", function() {
+
+      let t = createTimeline( 5 )
+      t.takeSnapshot({ "one": 10 })
+      t.takeSnapshot({ "one": 15 }, 20)
+      t.takeSnapshot({ "one": 18 }, 30)
+      t.takeSnapshot({ "one": 20 }, 40)
+      t.takeSnapshot({ "one": 30 }, 50)
+      t.takeSnapshot({ "one": 40 }, 60)
+      assert.equal( t.at(0).one, 15 )
+
+    })
+
+  })
 
   describe("number of snapshots", function() {
 
@@ -30,13 +71,12 @@ describe('Timeline', function() {
 
     it("should interpolate having only two snapshots", function() {
 
-      let time = Date.now()
       let t = createTimeline()
 
       t.takeSnapshot({ entities : { "one": 10 } })
 
       // fake 100ms later
-      t.takeSnapshot({ entities : { "one": 5 } }, time + 100)
+      t.takeSnapshot({ entities : { "one": 5 } }, 100)
 
       assert.equal( t.at( 0 ).entities.one, 10 )
       assert.equal( t.at( 100 ).entities.one, 5 )
