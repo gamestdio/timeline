@@ -5,6 +5,8 @@ const createProxy = require('./proxy.js').createProxy
 
 const MAX_SNAPSHOTS = 10
 
+const clone = require('./clone')
+
 class Timeline {
 
   constructor ( maxSnapshots ) {
@@ -41,7 +43,7 @@ class Timeline {
     this.history.push( {
       start: this.lastSnapshotTime,
       end: end,
-      data: JSON.stringify( state )
+      data: clone( state )
     } )
 
     // drop older history
@@ -82,7 +84,7 @@ class Timeline {
     }
 
     let frame = this.history[ lesserDistanceIndex ]
-    let data = JSON.parse( frame.data )
+    let data = frame.data
 
     //
     // traverse all properties to interpolate / extrapolate numbers
