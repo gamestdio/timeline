@@ -12,7 +12,8 @@ API
 
 - `createTimeline([ maxSnapshots=10 ])` - Create a Timeline instance
 - `Timeline#takeSnapshot( state[, elapsedMs ] )` - Record state on timeline history
-- `Timeline#at( elapsedMs )` - Get `Proxy` object containing interpolated values between recorded states.
+- `Timeline#at( elapsedMs[, interpolate=true ] )` - Get `Proxy` object containing interpolated values between recorded states.
+- `Timeline#offset( elapsedMs[, interpolate=true ] )` - Same as `#at`, but from the last snapshot taken.
 
 Example
 ---

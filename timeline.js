@@ -125,6 +125,12 @@ class Timeline {
 
   }
 
+  offset ( offset, interpolate ) {
+
+    return this.at( this.lastSnapshotTime + offset, interpolate )
+
+  }
+
   // traverseInterpolate ( state, previousState, multiplier ) {
   //
   //   for ( let prop in state  ) {
