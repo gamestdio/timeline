@@ -1,8 +1,9 @@
 {
   "name": "timeframe",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "Timelines implementation for lag compensation techniques in networked games.",
   "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
   "scripts": {
     "build": "tsc -d",
     "watch": "tsc -d -w",
