@@ -33,6 +33,7 @@
   },
   "devDependencies": {
     "@types/harmony-proxy": "^1.0.28",
-    "mocha": "^2.3.4"
+    "mocha": "^2.3.4",
+    "typescript": "^2.0.3"
   }
 }
