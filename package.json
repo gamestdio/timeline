@@ -2,8 +2,10 @@
   "name": "timeframe",
   "version": "0.3.3",
   "description": "Timelines implementation for lag compensation techniques in networked games.",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
+    "build": "tsc -d",
+    "watch": "tsc -d -w",
     "test": "mocha --harmony --harmony-proxies"
   },
   "repository": {
@@ -28,6 +30,7 @@
     "harmony-proxy": "^1.0.1"
   },
   "devDependencies": {
+    "@types/harmony-proxy": "^1.0.28",
     "mocha": "^2.3.4"
   }
 }

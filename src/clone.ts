@@ -1,4 +1,7 @@
-function clone ( obj ) {
+/**
+ * Cheap deep clone utility
+ */
+export function clone ( obj: any ): any {
 
   var newObj = (obj instanceof Array) ? [] : {};
 
@@ -18,5 +21,3 @@ function clone ( obj ) {
   return newObj
 
 }
-
-module.exports = clone

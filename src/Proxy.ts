@@ -1,19 +1,12 @@
-"use strict";
+import * as Proxy from "harmony-proxy";
 
-const Proxy = require('harmony-proxy')
-
-const createProxy = function ( state, previousState, multiplier ) {
-
-  return new Proxy( state, createHandler( previousState, multiplier ) )
-
+export function createProxy ( state, previousState, multiplier ): any {
+  return new Proxy( state, createHandler( previousState, multiplier ) );
 }
 
-const createHandler = function ( previousState, multiplier ) {
-
+function createHandler ( previousState, multiplier ) {
   return {
-
     get ( state, property ) {
-
       let currentValue = state[ property ]
       let previousValue = previousState[ property ]
 
@@ -26,29 +19,19 @@ const createHandler = function ( previousState, multiplier ) {
       }
 
       if ( typeof( currentValue ) === "number" && typeof( previousValue ) === "number" ) {
-
         let result = currentValue + ( previousValue - currentValue ) * multiplier
-
-        return Number.isNaN( result ) ? null : result
+        return isNaN( result ) ? null : result
 
       } else if ( currentValue === null ) {
-
         return null
 
       } else if ( typeof( currentValue ) === "object" ) {
-
         return createProxy( currentValue, previousValue, multiplier )
 
       } else {
-
         return currentValue
 
       }
-
     }
-
-  }
-
+  };
 }
-
-module.exports.createProxy = createProxy

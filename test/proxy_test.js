@@ -1,7 +1,7 @@
 "use strict";
 
 var assert = require('assert')
-  , createProxy = require('../proxy.js').createProxy
+  , createProxy = require('../lib/proxy.js').createProxy
 
 describe('Timeline: interpolation/extrapolation proxy', function() {
 
