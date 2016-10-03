@@ -1,7 +1,7 @@
 "use strict";
 
 var assert = require('assert')
-  , createTimeline = require('../lib/index.js').createTimeline
+  , createTimeline = require('../lib/index').createTimeline
 
 describe('Timeline', function() {
 
