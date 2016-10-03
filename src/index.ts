@@ -1,4 +1,4 @@
-import { Timeline } from "./timeline.js";
+import { Timeline } from "./timeline";
 
 export function createTimeline ( maxSnapshots: number = 10 ): Timeline {
 
