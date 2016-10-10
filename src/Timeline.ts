@@ -14,7 +14,7 @@ export class Timeline {
         this.maxSnapshots = maxSnapshots
     }
 
-    takeSnapshot ( state: any, elapsedTime: number ): void {
+    takeSnapshot ( state: any, elapsedTime?: number ): void {
         if ( !this.startTime ) {
             this.startTime = Date.now()
         }
