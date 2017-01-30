@@ -1,6 +1,8 @@
 timeframe [![Build Status](https://secure.travis-ci.org/gamestdio/timeframe.png?branch=master)](http://travis-ci.org/gamestdio/timeframe)
 ===
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/gamestdio/timeframe.svg)](https://greenkeeper.io/)
+
 Timelines implementation for lag compensation techniques in networked games.
 Use it both on server and/or client-side according to your needs.
 
