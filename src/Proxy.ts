@@ -10,11 +10,11 @@ function createHandler ( previousState, multiplier ) {
       let currentValue = state[ property ]
       let previousValue = previousState[ property ]
 
-      if ( typeof( currentValue ) === "undefined" ) {
+      if ( currentValue === undefined ) {
         currentValue = previousValue
       }
 
-      if ( typeof( previousValue ) === "undefined" ) {
+      if ( previousValue === undefined ) {
         previousValue = currentValue
       }
 
@@ -30,7 +30,6 @@ function createHandler ( previousState, multiplier ) {
 
       } else {
         return currentValue
-
       }
     }
   };
