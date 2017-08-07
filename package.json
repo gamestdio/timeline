@@ -1,5 +1,5 @@
 {
-  "name": "timeframe",
+  "name": "@gamestdio/timeline",
   "version": "0.3.5",
   "description": "Timelines implementation for lag compensation techniques in networked games.",
   "main": "lib/index.js",
