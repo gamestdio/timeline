@@ -28,12 +28,11 @@
   },
   "homepage": "https://github.com/gamestdio/timeframe#readme",
   "dependencies": {
-    "clock.js": "*",
     "harmony-proxy": "^1.0.1"
   },
   "devDependencies": {
     "@types/harmony-proxy": "^1.0.28",
     "mocha": "^3.2.0",
-    "typescript": "^2.0.3"
+    "typescript": "^2.4.2"
   }
 }
